@@ -30,7 +30,6 @@ class Appfigures
 
   def date_sales(start_date, end_date)
     url = "sales/dates+products/#{start_date.strftime('%Y-%m-%d')}/#{end_date.strftime('%Y-%m-%d')}"
-    puts "\nURL: %s" % url
     self.connection.get(url).body.map do |date, product|
       product.map do |product_id, hash|
         Hashie::Mash.new({
