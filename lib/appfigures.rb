@@ -12,6 +12,7 @@ class Appfigures
   def product_sales
     self.connection.get('sales/products').body.map do |id, hash|
       Hashie::Mash.new({
+        'ref_no'          => hash['product']['ref_no'],
         'product_id'      => hash['product']['id'],
         'store_id'        => hash['product']['store_id'],
         'store_name'      => hash['product']['store_name'],
@@ -34,6 +35,7 @@ class Appfigures
       product.map do |product_id, hash|
         Hashie::Mash.new({
           'date'            => Date.parse(date),
+          'ref_no'      => hash['product']['ref_no'],
           'product_id'      => hash['product']['id'],
           'store_id'        => hash['product']['store_id'],
           'store_name'      => hash['product']['store_name'],
