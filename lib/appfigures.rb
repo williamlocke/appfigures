@@ -55,25 +55,22 @@ class Appfigures
   
   
   def products_search(term)
-    url = "/products/search/#{term}"
-    self.connection.get(url).body.map do |date, product|
-      product.map do |product_id, hash|
+    url = "products/search/#{term}"
+    puts "calling: %s" % url
+    self.connection.get(url).body.map do |hash|
         Hashie::Mash.new({
-          'public_product_id'      => hash['public_product_id'],
-          'refno'      => hash['refno'],
-          'sku'      => hash['sku'],
-          'name'      => hash['name'],
-          'developer'      => hash['developer'],
-          'icon'      => hash['icon'],
-          'price'      => hash['price']['value'],
-          'store'      => hash['store']
+          'public_product_id' => hash['public_product_id'],
+          'refno'             => hash['refno'],
+          'sku'               => hash['sku'],
+          'name'              => hash['name'],
+#           'developer'         => hash['developer'],
+          'icon'              => hash['icon'],
+          'price'             => hash['price']['value'],
+          'store'             => hash['store']
         })
-      end
-    end
+    end    
   end
   
   
-  
-
 
 end
