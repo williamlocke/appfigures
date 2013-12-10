@@ -13,3 +13,8 @@ group :development do
   gem "simplecov", ">= 0"
 end
 
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'multi_json'
+gem 'hashie'
+
