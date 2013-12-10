@@ -9,18 +9,22 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["williamlocke"]
-  s.date = "2013-10-23"
+  s.date = "2013-12-10"
   s.description = "Wrapper gem for AppFigures API"
   s.email = "williamlocke@me.com"
   s.extra_rdoc_files = [
+    "LICENSE",
     "LICENSE.txt",
+    "README.md",
     "README.rdoc"
   ]
   s.files = [
+    ".DS_Store",
     ".document",
     "Gemfile",
-    "Gemfile.lock",
+    "LICENSE",
     "LICENSE.txt",
+    "README.md",
     "README.rdoc",
     "Rakefile",
     "VERSION",
@@ -28,6 +32,9 @@ Gem::Specification.new do |s|
     "lib/appfigures.rb",
     "lib/appfigures/connection.rb",
     "lib/appfigures/version.rb",
+    "spec/date_sales_spec.rb",
+    "spec/product_sales_spec.rb",
+    "spec/spec_helper.rb",
     "test/helper.rb",
     "test/test_appfigures.rb"
   ]
@@ -61,3 +68,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<simplecov>, [">= 0"])
   end
 end
+
