@@ -52,7 +52,7 @@ class Appfigures
       end
     end
   end
-  
+
   
   def products_search(term)
     url = "products/search/#{term}"
@@ -70,7 +70,6 @@ class Appfigures
         })
     end    
   end
-  
   
 
 end
