@@ -3,8 +3,8 @@ source "http://rubygems.org"
 # Example:
 #   
 
-
-gem "activesupport", "= 3.2.16"
+gem "activesupport", "= 3.2.19"
+#gem "activesupport"
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'multi_json'
