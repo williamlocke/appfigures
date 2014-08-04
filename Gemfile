@@ -4,7 +4,7 @@ source "http://rubygems.org"
 #   
 
 
-gem "activesupport", "= 2.3.5"
+gem "activesupport", "= 3.2.16"
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'multi_json'
