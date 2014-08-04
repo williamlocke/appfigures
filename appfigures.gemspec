@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "appfigures"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["williamlocke"]
-  s.date = "2013-12-10"
+  s.date = "2014-08-04"
   s.description = "Wrapper gem for AppFigures API"
   s.email = "williamlocke@me.com"
   s.extra_rdoc_files = [
@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activesupport>, ["= 3.2.16"])
       s.add_runtime_dependency(%q<faraday>, [">= 0"])
       s.add_runtime_dependency(%q<faraday_middleware>, [">= 0"])
       s.add_runtime_dependency(%q<multi_json>, [">= 0"])
@@ -59,6 +60,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.7"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
+      s.add_dependency(%q<activesupport>, ["= 3.2.16"])
       s.add_dependency(%q<faraday>, [">= 0"])
       s.add_dependency(%q<faraday_middleware>, [">= 0"])
       s.add_dependency(%q<multi_json>, [">= 0"])
@@ -70,6 +72,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
+    s.add_dependency(%q<activesupport>, ["= 3.2.16"])
     s.add_dependency(%q<faraday>, [">= 0"])
     s.add_dependency(%q<faraday_middleware>, [">= 0"])
     s.add_dependency(%q<multi_json>, [">= 0"])
