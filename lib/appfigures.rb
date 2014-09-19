@@ -3,26 +3,8 @@ require 'appfigures/connection'
 require 'date'
 
 
-
-class TestClass
-  
-  def self.test()
-    puts "Test"
-  end
-
-end
-
 class Appfigures
   
-  def self.test()
-    puts "Test"
-  end
-  
-  def new(*args)
-   print "Creating a new ", self.name, "\n"
-   oldNew(*args)
-  end
-
   attr_reader :connection
   def initialize(options = {})
     @connection = Appfigures::Connection.new options[:username], options[:password]
