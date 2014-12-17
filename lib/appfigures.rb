@@ -1,13 +1,25 @@
 require 'appfigures/version'
 require 'appfigures/connection'
 require 'date'
-
+require 'mechanize'
 
 class Appfigures
   
   attr_reader :connection
   def initialize(options = {})
+    @username = options[:username]
+    @password = options[:password]
+    @mechanize = Mechanize.new
     @connection = Appfigures::Connection.new options[:username], options[:password]
+  end
+
+  def login
+    url = "https://appfigures.com/login"
+    page = self.mechanize.get(url)
+    form = page.forms.first
+    form['email'] = @username
+    form['pass'] = @password
+    page = form.submit
   end
 
   def product_sales
@@ -72,6 +84,32 @@ class Appfigures
           'store'             => hash['store']
         })
     end    
+  end
+
+
+  def products_search(term)
+    url = "products/search/#{term}"
+    puts "calling: %s" % url
+    self.connection.get(url).body.map do |hash|
+      Hashie::Mash.new({
+                           'public_product_id' => hash['public_product_id'],
+                           'refno'             => hash['refno'],
+                           'sku'               => hash['sku'],
+                           'name'              => hash['name'],
+                           #           'developer'         => hash['developer'],
+                           'icon'              => hash['icon'],
+                           'price'             => hash['price']['value'],
+                           'store'             => hash['store']
+                       })
+    end
+  end
+
+  def scrape_top_ranked_apps(options)
+    self.login()
+    url = (options[:url] if options[:url]) || "https://appfigures.com/api/ranks/snapshots/current/US/17003/free"
+    page = mechanize.get(url)
+    response_json = JSON.parse(page.body)
+    return (response_json['entries'] if response_json and response_json['entries']) || nil
   end
   
 

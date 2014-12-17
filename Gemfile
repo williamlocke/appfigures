@@ -8,7 +8,7 @@ gem 'faraday'
 gem 'faraday_middleware'
 gem 'multi_json'
 gem 'hashie'
-
+gem 'mechanize'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
