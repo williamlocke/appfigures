@@ -6,6 +6,10 @@ require 'mechanize'
 class Appfigures
   
   attr_reader :connection
+  attr_reader :mechanize
+  attr_reader :username
+  attr_reader :password
+
   def initialize(options = {})
     @username = options[:username]
     @password = options[:password]
@@ -104,10 +108,10 @@ class Appfigures
     end
   end
 
-  def scrape_top_ranked_apps(options)
+  def scrape_top_ranked_apps(options = {})
     self.login()
     url = (options[:url] if options[:url]) || "https://appfigures.com/api/ranks/snapshots/current/US/17003/free"
-    page = mechanize.get(url)
+    page = self.mechanize.get(url)
     response_json = JSON.parse(page.body)
     return (response_json['entries'] if response_json and response_json['entries']) || nil
   end
